@@ -4,12 +4,17 @@ pragma solidity ^0.8.4;
 
 contract BlockHealth {
 
-    string public aboutUs = "";
+    string public aboutUs = "Secure decentralized electronic health records sharing system based on blockchains";
     address public owner;
     address[] public managers;
     
     mapping(address => address[]) patientList;
     mapping(address => string[]) medicalRecords;
+
+    modifier onlyOwner(){
+        require(msg.sender == owner, "Only the owner has access to this");
+        _;
+    }
 
     modifier restricted(){
         bool allowed = false;
@@ -56,7 +61,6 @@ contract BlockHealth {
     }
 
     function getPatients(address doctor) public view restricted returns(address[] memory){
-        require(msg.sender == doctor, "You are not allowed to access personl information");
         return patientList[doctor];
     }
 
@@ -64,14 +68,21 @@ contract BlockHealth {
         return medicalRecords[patient];
     }
 
-    function addManager(address newManager) public {
-        require(msg.sender == owner, "Only the owner can add/remove managers");
+    function addManager(address newManager) public onlyOwner {
         managers.push(newManager);
     }
 
-    function transferOwnership(address newOwner) public {
-        require(msg.sender == owner, "Only the owner can transfer ownership of this contract");
+    function transferOwnership(address newOwner) public onlyOwner {
         owner = newOwner;
+    }
+
+    function deleteManager(address oldManager) public onlyOwner {
+        for(uint i; i<managers.length; i++){
+            if(managers[i] == oldManager){
+                delete managers[i];
+                break;
+            }
+        }
     }
 
 
