@@ -74,6 +74,11 @@ contract BlockHealth {
         return medicalRecords[patient];
     }
 
+    // Function to get all the medical reports for the patients use
+    function getMyRecords() public view returns(string[] memory) {
+        return medicalRecords[msg.sender];
+    }
+
     // Function to assign a new manager
     function addManager(address newManager) public onlyOwner {
         managers[newManager] = true;
