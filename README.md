@@ -1,6 +1,6 @@
 # BlockHealth
 
-Secure decentralized electronic health records sharing system based on blockchains
+Secure decentralized electronic health records sharing system based on blockchains.
 
 Try running some of the following tasks:
 
