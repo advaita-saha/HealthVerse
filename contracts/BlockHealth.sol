@@ -6,7 +6,7 @@ contract BlockHealth {
     // Declaring the public variables to store basic info about the contract
     string public aboutUs = "Secure decentralized electronic health records sharing system based on blockchains";
     address public owner;
-    mapping(address => bool) managers;
+    mapping(address => bool) public managers;
     
     // Declaring the private variables storing the data of the patients mapped with the doctors
     mapping(address => address[]) patientList;
@@ -93,6 +93,5 @@ contract BlockHealth {
     function deleteManager(address oldManager) public onlyOwner {
         managers[oldManager] = false;
     }
-
 
 }

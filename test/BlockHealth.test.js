@@ -82,4 +82,21 @@ describe("BlockHealth Contract Test", () => {
         const data = await contract.connect(accounts[1]).getPatients(accounts[7].address);
         assert.equal(data[0], accounts[12].address);
     });
+
+    it("doctor can access, his/her list of patients", async () => {
+        const data = await contract.connect(accounts[7]).getMyPatients();
+        assert.equal(data[0], accounts[12].address);
+    });
+
+    it("add managers by owner", async () => {
+        await contract.addManager(accounts[19].address);
+        const managerAccess = await contract.managers(accounts[19].address);
+        assert.equal(managerAccess, true);
+    });
+
+    it("remove manager access", async () => {
+        await contract.deleteManager(accounts[3].address);
+        const managerAccess = await contract.managers(accounts[3].address);
+        assert.equal(managerAccess, false);
+    });
 });
