@@ -1,6 +1,6 @@
 # BlockHealth
 
-Secure decentralized electronic health records sharing system based on blockchains.
+Secure decentralized electronic health records sharing and storing system based on blockchains.
 Sample Contract deployed at Rinkeby test network : null 
 
 Run the following commands to test and deploy
