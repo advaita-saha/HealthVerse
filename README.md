@@ -9,4 +9,5 @@ Run the following commands to test and deploy
 npx hardhat compile
 npx hardhat test
 npx hardhat run scripts/deploy.js --network rinkeby
+npx hardhat run scripts/deploy.js --network mumbai
 ```
