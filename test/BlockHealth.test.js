@@ -66,7 +66,7 @@ describe("BlockHealth Contract Test", () => {
 
     it("others cannot access patient data", async () => {
         try{
-            const recordData = await contract.connect(accounts[20]).getRecords(accounts[12].address);
+            await contract.connect(accounts[20]).getRecords(accounts[12].address);
             assert(false);
         } catch (err) {
             assert(err);
