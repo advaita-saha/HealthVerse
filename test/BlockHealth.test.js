@@ -1,6 +1,5 @@
 const { expect, assert } = require("chai");
 const { ethers } = require("hardhat");
-
 let contract;
 let accounts;
 
