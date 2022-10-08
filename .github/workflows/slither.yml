@@ -1,5 +1,9 @@
 name: Slither Analysis
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 jobs:
   analyze:
     runs-on: ubuntu-latest
